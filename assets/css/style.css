@@ -1,14 +1,16 @@
+/* ===== RESET & BASE ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
 }
 
-/* 1. Header & Navigation */
+/* ===== HEADER & NAV ===== */
 header {
   position: fixed;
   top: 0;
@@ -19,12 +21,17 @@ header {
   padding: 20px 50px;
   z-index: 1000;
   transition: 0.5s;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Nền tối mờ để chữ trắng nổi bật trên video */
 }
 
 header.sticky {
-  background: #00796b;
-  padding: 10px 50px;
+  background: #00796b; /* Màu xanh thương hiệu khi cuộn */
+  padding: 12px 50px;
 }
 
 .logo {
@@ -32,101 +39,154 @@ header.sticky {
   font-weight: 700;
   font-size: 24px;
   text-decoration: none;
+  letter-spacing: 1px;
 }
 
-nav ul {
+.menu {
   display: flex;
   list-style: none;
 }
 
-nav ul li {
-  margin-left: 30px;
-  position: relative; /* 🔥 QUAN TRỌNG cho dropdown */
+.menu li {
+  margin-left: 25px;
+  position: relative;
 }
 
-nav ul li a {
+.menu li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
+  transition: 0.3s;
 }
 
-/* ===== DROPDOWN ===== */
-.submenu {
+.menu li a:hover {
+  color: #ff9800;
+}
+
+/* ===== DROPDOWN & SUBMENU ===== */
+.dropdown {
+  position: relative;
+}
+
+/* Vùng đệm ảo để giữ kết nối chuột khi rê từ menu cha xuống menu con */
+.dropdown::after {
+  content: "";
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
-  display: none;
-  padding-top: 20px;
-  z-index: 100;
-  background: white;
-  border-radius: 6px;
-  overflow: hidden;
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 20px; /* Độ dài vùng đệm */
 }
 
+.submenu {
+  position: absolute;
+  top: calc(100% + 15px); /* Khoảng cách từ menu cha */
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  min-width: 230px;
+  background: white;
+  border-radius: 8px;
+  list-style: none;
+
+  /* Hiệu ứng ẩn/hiện mượt mà */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  z-index: 2000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiển thị khi Hover */
+.dropdown:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mũi tên nhỏ phía trên submenu */
 .submenu::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px; /* Bằng với khoảng cách padding-top ở trên */
-  background: transparent;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: white;
 }
 
-/* Phần nội dung thực sự của menu con */
-.submenu-content {
-  background: rgba(0, 121, 107, 0.9); /* Màu xanh thương hiệu của bạn */
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
+/* Các mục trong submenu */
 .submenu li {
-  margin: 0;
-  list-style: none;
+  margin: 0 !important; /* Reset margin */
+  width: 100%;
 }
 
 .submenu a {
-  color: #333333;
-  padding: 12px 15px;
-  display: block;
-  text-transform: none;
-  font-size: 14px;
-  text-decoration: none;
+  display: block !important;
+  padding: 12px 20px !important;
+  color: #333 !important; /* Chữ xám đậm trên nền trắng để rõ nét */
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border-bottom: 1px solid #f1f1f1;
   transition: 0.3s;
-  font-weight: 600;
 }
 
+/* Bo góc cho mục đầu và cuối */
+.submenu li:first-child a {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.submenu li:last-child a {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom: none;
+}
+
+/* Hover vào mục trong submenu */
 .submenu a:hover {
-  background: #f4f4f4;
+  background: #00796b !important; /* Đổi sang màu xanh dệt may khi hover */
+  color: white !important; /* Chữ trắng nổi bật trên nền xanh */
+  padding-left: 25px !important; /* Hiệu ứng đẩy nhẹ sang phải */
 }
 
-/* Hover để hiện */
-.dropdown:hover .submenu {
-  display: block;
-}
-/* Nút eShop nổi bật */
+/* ===== NÚT ESHOP ===== */
 .btn-eshop {
   background: #ff9800;
-  padding: 8px 20px;
-  border-radius: 5px;
+  padding: 8px 22px !important;
+  border-radius: 50px !important; /* Bo tròn kiểu hiện đại */
+  color: white !important;
   transition: 0.3s;
-}
-.btn-eshop:hover {
-  background: #e68a00;
+  box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
 }
 
-/* ===== BURGER ===== */
+.btn-eshop:hover {
+  background: #e68a00 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.4);
+}
+
+/* ===== BURGER (MOBILE) ===== */
 .burger {
   display: none;
   font-size: 26px;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .burger {
+    display: block;
+  }
+  .menu {
+    display: none;
+  } /* Cần thêm JS để xử lý menu mobile hoàn chỉnh */
 }
 
 /* 2. Video Background Section */

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lymitex</title>
-
+    <title>Lymitex Textile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
 <header id="navbar">
@@ -17,10 +18,8 @@
 
     <nav>
         <ul class="menu">
-
             <li><a href="index.php">Trang chủ</a></li>
 
-            <!-- Thông tin công ty -->
             <li class="dropdown">
                 <a href="#">Thông tin công ty</a>
                 <ul class="submenu">
@@ -31,7 +30,6 @@
                 </ul>
             </li>
 
-            <!-- Nhóm sản phẩm -->
             <li class="dropdown">
                 <a href="#">Nhóm sản phẩm</a>
                 <ul class="submenu">
@@ -41,7 +39,6 @@
                 </ul>
             </li>
 
-            <!-- Xưởng -->
             <li class="dropdown">
                 <a href="#">Xưởng sản xuất</a>
                 <ul class="submenu">
@@ -54,7 +51,6 @@
                 </ul>
             </li>
 
-            <!-- Công nhân viên -->
             <li class="dropdown">
                 <a href="#">Công nhân viên</a>
                 <ul class="submenu">
@@ -65,21 +61,30 @@
                 </ul>
             </li>
 
-            <!-- Liên hệ -->
             <li class="dropdown">
                 <a href="#">Liên hệ</a>
                 <ul class="submenu">
-                    <li><a href="index.php?page=contact">Thông tin công ty</a></li>
+                    <li><a href="index.php?page=contact">Thông tin liên hệ</a></li>
                     <li><a href="index.php?page=agency">Đại lý</a></li>
                 </ul>
             </li>
 
             <li>
-                <a href="http://192.168.0.6/lyminhshop/" target="_blank" class="btn-eshop">
-                    eShop
-                </a>
+                <a href="http://192.168.0.6/lyminhshop/" target="_blank" class="btn-eshop">eShop</a>
             </li>
-
         </ul>
     </nav>
 </header>
+
+<script>
+    // Hiệu ứng Header khi cuộn
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        document.querySelector('.menu').classList.toggle('active');
+    }
+</script>
