@@ -31,15 +31,12 @@
 
         <div class="footer-col">
             <h4>Bản Đồ</h4>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18..."
-                width="100%" height="250" style="border:0;">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.3836566743075!2d106.93192327573531!3d10.70486246050821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317522b5d8388c41%3A0x4fcd6eb8b2712a37!2zQ8O0bmcgVHkgVE5ISCBE4buHdCBMw70gTWluaA!5e0!3m2!1sen!2s!4v1776393024798!5m2!1sen!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Lymitex Textile</p>
+        <p>&copy; 2026 Lymitex Textile. All right reserved. Design by Đình Vương</p>
     </div>
 </footer>
 
