@@ -612,13 +612,24 @@ header.sticky {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: relative;
 }
 
 .main-cert-container img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
   animation: zoomIn 0.5s ease;
+}
+
+.main-cert-container img.fading {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 .cert-thumbnails {
@@ -705,8 +716,502 @@ header.sticky {
     text-align: center; /* Căn giữa đoạn văn để đồng bộ */
   }
 }
-/* FOOTER */
 
+/* ========================= Trang thông tin công ty */
+
+.company-profile-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.profile-section {
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.profile-section .container {
+  border-bottom: 1px solid #777;
+  padding-bottom: 40px; /* Tạo khoảng cách giữa chữ và đường viền */
+}
+
+.profile-main-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Khung ảnh Giới thiệu */
+.profile-image-box {
+  width: 100%;
+  max-width: 900px; /* Giới hạn độ rộng để ảnh không quá to */
+  margin: 0 auto 40px auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.img-responsive-profile {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Nội dung văn bản Giới thiệu */
+.profile-content-text {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-content-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: justify; /* Căn đều 2 bên như ảnh mẫu */
+}
+
+/* Phần Công nghệ */
+.tech-section {
+  padding: 80px 0;
+  background-color: #fcfcfc;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.section-profile-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.section-profile-title.left {
+  text-align: left;
+}
+
+.collage-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* --- HỆ THỐNG CUỘN VÀ RESPONSIVE --- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Bù trừ khoảng cách khi nhảy ID từ Menu */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Máy tính bảng */
+@media (max-width: 992px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .section-profile-title.left {
+    text-align: center;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 768px) {
+  .profile-section {
+    padding-top: 100px;
+  }
+  .profile-main-title {
+    font-size: 24px;
+  }
+  .profile-content-text p {
+    text-align: left;
+    font-size: 15px;
+  }
+}
+
+/* Thiết lập bố cục so le */
+.profile-section-alternate {
+  padding: 60px 0;
+}
+
+.border-top-container {
+  border-top: 1px solid #777;
+  padding-top: 60px;
+}
+
+.alternate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Đảo ngược vị trí cho phần môi trường */
+.alternate-grid.reverse {
+  direction: ltr;
+}
+
+.alternate-grid.reverse .alternate-text {
+  order: 1;
+}
+
+.alternate-grid.reverse .alternate-image {
+  order: 2;
+}
+
+/* Định dạng ảnh */
+.img-fluid-rounded {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid-no-shadow {
+  width: 100%;
+  max-width: 400px; /* Thường ảnh môi trường là icon/đồ họa nên để nhỏ hơn */
+  display: block;
+  margin: 0 auto;
+}
+
+.alternate-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .alternate-grid,
+  .alternate-grid.reverse {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .alternate-grid.reverse .alternate-text {
+    order: 2;
+  }
+
+  .alternate-grid.reverse .alternate-image {
+    order: 1;
+  }
+
+  .section-profile-title.left {
+    text-align: center;
+  }
+}
+
+.series-selectors {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.series-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  line-height: 1.2;
+}
+
+.series-btn:hover,
+.series-btn.active {
+  border-color: #00796b;
+  box-shadow: 0 0 10px rgba(0, 121, 107, 0.2);
+  transform: scale(1.05);
+}
+
+.color-display-box {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hiệu ứng chuyển cảnh cho ảnh */
+#mainColorImg {
+  transition: opacity 0.5s ease;
+}
+
+/* ========================================================== TRANG NHÓM SẢN PHÂM */
+/* Layout chung Nhóm sản phẩm */
+.product-info-section {
+  background-color: #ffffff;
+  margin-top: 30px;
+}
+.mt-top {
+  padding: 80px 0;
+}
+
+.border-bottom-container {
+  border-bottom: 1px solid #777;
+  padding-bottom: 60px;
+}
+
+.product-alternate-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Kiểu chữ */
+.section-profile-title.left {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.product-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* Xử lý hiệu ứng đổi ảnh Nhóm vải */
+.color-chart-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-color-display {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-main-display {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Hiệu ứng chuyển mượt (fade) cubic-bezier cho cảm giác cao cấp */
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+}
+
+/* Class được JS dùng để mờ đi tạm thời */
+.img-main-display.fading {
+  opacity: 0;
+}
+
+/* 4 Ảnh nhỏ thumbnail tròn */
+.color-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.thumb-fabric {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.thumb-fabric.active,
+.thumb-fabric:hover {
+  border-color: #00796b;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-alternate-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .section-profile-title.left {
+    text-align: center;
+  }
+}
+
+/* Đảo ngược grid: Text cột 1, Visual cột 2 */
+.product-alternate-grid.reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.medical-gallery-layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+}
+
+.medical-main-display {
+  width: 280px;
+  height: 380px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* Hiệu ứng mượt cho ảnh */
+.img-main-display {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-main-display.fading {
+  opacity: 0;
+}
+
+/* Định vị thumbnail tròn bao quanh ảnh chính */
+.medical-thumbnails {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Để không che khuất ảnh chính */
+}
+
+.thumb-medical {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: 0.3s ease;
+}
+
+/* Vị trí các ảnh nhỏ xung quanh (tinh chỉnh theo ý muốn) */
+.thumb-medical:nth-child(1) {
+  top: 10%;
+  left: 5%;
+}
+.thumb-medical:nth-child(2) {
+  top: 40%;
+  left: 0%;
+}
+.thumb-medical:nth-child(3) {
+  bottom: 10%;
+  left: 5%;
+}
+.thumb-medical:nth-child(4) {
+  top: 10%;
+  right: 5%;
+}
+.thumb-medical:nth-child(5) {
+  top: 40%;
+  right: 0%;
+}
+.thumb-medical:nth-child(6) {
+  bottom: 10%;
+  right: 5%;
+}
+
+.thumb-medical.active {
+  border-color: #00796b;
+  transform: scale(1.1);
+}
+
+.accessory-gallery-layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+}
+
+.accessory-main-display {
+  width: 280px;
+  height: 380px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.accessory-thumbnails {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.thumb-accessory {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover;
+}
+
+/* Vị trí các ảnh nhỏ xung quanh ảnh chính */
+/* Vị trí đối xứng cho 4 ảnh nhỏ xung quanh ảnh chính */
+.thumb-accessory:nth-child(1) {
+  top: 0;
+  left: -20px;
+} /* Góc trên bên trái */
+.thumb-accessory:nth-child(2) {
+  top: 0;
+  right: -20px;
+} /* Góc trên bên phải */
+.thumb-accessory:nth-child(3) {
+  bottom: 0;
+  left: -20px;
+} /* Góc dưới bên trái */
+.thumb-accessory:nth-child(4) {
+  bottom: 0;
+  right: -20px;
+} /* Góc dưới bên phải */
+
+.thumb-accessory.active {
+  border-color: #00796b;
+  transform: scale(1.1);
+  opacity: 1;
+}
+/* ===================================== FOOTER */
 footer {
   background: #1a1a1a; /* Màu nền tối sang trọng */
   color: #ddd;
