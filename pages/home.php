@@ -1,7 +1,7 @@
 <!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline>
-    <source src="assets/video/vdcanva.mp4" type="video/mp4">
+    <source src="assets/video/canva.mp4" type="video/mp4">
   </video>
   <div class="overlay"></div>
 
@@ -301,7 +301,7 @@
 
       <div class="certificate-display">
         <div class="main-cert-container">
-          <img id="mainCertImage" src="assets/img/cert1.jpg" alt="Chứng chỉ ISO">
+          <img id="mainCertImage" src="assets/img/cert1.jpg" alt="Chứng chỉ ISO" loading="lazy">
         </div>
 
         <div class="cert-thumbnails">

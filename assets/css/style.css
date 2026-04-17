@@ -191,15 +191,17 @@ header.sticky {
 }
 
 /* 2. Video Background Section */
+/* --- HERO SECTION --- */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* Full màn hình máy tính */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   color: white;
   text-align: center;
+  padding: 0 20px; /* Tránh chữ sát mép màn hình khi co nhỏ */
 }
 
 .hero video {
@@ -210,7 +212,7 @@ header.sticky {
   height: 100%;
   z-index: -2;
   transform: translate(-50%, -50%);
-  object-fit: cover;
+  object-fit: cover; /* Video luôn lấp đầy khung hình */
   background: #000;
 }
 
@@ -220,34 +222,72 @@ header.sticky {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5); /* Tăng độ tối một chút để dễ đọc chữ */
   z-index: -1;
 }
 
+.hero-content {
+  max-width: 900px;
+  z-index: 1;
+}
+
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem; /* Cỡ máy tính */
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.2;
+  font-weight: 800;
+  animation: fadeInUp 1s ease;
 }
+
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 30px;
   opacity: 0.9;
+  animation: fadeInUp 1.2s ease;
 }
 
-/* 3. Nội dung */
-section {
-  padding: 100px 10%;
+/* --- RESPONSIVE CHO HERO --- */
+
+/* Máy tính bảng (Tablet) */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1.2rem;
+  }
 }
 
-h2.section-title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 50px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* Điện thoại (Mobile) */
+@media (max-width: 576px) {
+  .hero {
+    height: 80vh; /* Trên mobile nên để ngắn lại một chút để lộ phần nội dung dưới */
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem; /* Chữ nhỏ lại để không bị tràn dòng quá nhiều */
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+/* Hiệu ứng hiện chữ cho chuyên nghiệp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -271,20 +311,19 @@ h2.section-title {
 }
 
 /* Hình ảnh bên trái */
-/* Tối ưu hiển thị Video trong phần About */
 .about-video {
   width: 100%;
   height: auto;
-  border-radius: 12px; /* Bo góc đồng bộ với thiết kế */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Tạo độ nổi */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   display: block;
-  object-fit: cover; /* Đảm bảo video lấp đầy khung hình nếu bạn chỉnh kích thước cố định */
+  object-fit: cover;
 }
 
 /* Đảm bảo khối chứa video giữ vị trí tương đối cho huy hiệu */
 .about-image {
   position: relative;
-  line-height: 0; /* Loại bỏ khoảng trống thừa dưới video */
+  line-height: 0;
 }
 
 /* Huy hiệu số năm kinh nghiệm */
@@ -385,7 +424,7 @@ h2.section-title {
   }
 }
 
-/* PRODUCTS */
+/* ============================ PRODUCTS */
 .product-type-section {
   padding: 80px 0;
   background: #f9f9f9;
@@ -484,6 +523,72 @@ h2.section-title {
   border-radius: 10px;
 }
 
+/* --- RESPONSIVE CHO PRODUCT SECTION --- */
+
+/* Máy tính bảng và màn hình nhỏ (Dưới 992px) */
+@media (max-width: 992px) {
+  .product-grid {
+    gap: 30px;
+  }
+
+  .product-info h3 {
+    font-size: 22px;
+  }
+}
+
+/* Điện thoại di động (Dưới 768px) */
+@media (max-width: 768px) {
+  .product-type-section {
+    padding: 50px 0; /* Giảm padding cho gọn */
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .slider-container {
+    min-height: auto; /* Để chiều cao tự động theo nội dung */
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    gap: 20px;
+    text-align: center; /* Căn giữa chữ cho đẹp trên mobile */
+  }
+
+  .product-info {
+    order: 2; /* Đẩy chữ xuống dưới ảnh */
+  }
+
+  .product-image {
+    order: 1; /* Đưa ảnh lên trên chữ */
+    max-width: 300px; /* Giới hạn chiều rộng ảnh */
+    margin: 0 auto; /* Căn giữa khối ảnh */
+  }
+
+  .product-info h3 {
+    margin-bottom: 10px;
+  }
+
+  .product-info p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .slider-dots {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Nếu có 13 chấm thì sẽ tự xuống dòng */
+    gap: 8px;
+  }
+
+  .dot {
+    margin: 0; /* Thay bằng gap ở trên cho đều */
+  }
+}
+
 /* ======================================= Cert */
 .certificate-section {
   padding: 80px 0;
@@ -551,8 +656,57 @@ h2.section-title {
     transform: scale(1);
   }
 }
+
+/* --- RESPONSIVE CHO CERTIFICATE SECTION --- */
+
+/* Máy tính bảng (Dưới 992px) */
+@media (max-width: 992px) {
+  .certificate-grid {
+    grid-template-columns: 1fr; /* Chuyển về 1 cột */
+    gap: 30px;
+    text-align: center;
+  }
+
+  .main-cert-container {
+    height: 380px; /* Giảm chiều cao khung ảnh chính */
+  }
+}
+
+/* Điện thoại di động (Dưới 576px) */
+@media (max-width: 576px) {
+  .certificate-section {
+    padding: 60px 0;
+  }
+
+  .main-cert-container {
+    height: 300px; /* Khung ảnh nhỏ lại cho vừa màn hình điện thoại */
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .cert-thumbnails {
+    gap: 8px; /* Thu hẹp khoảng cách giữa các ảnh tròn */
+    margin-top: 15px;
+    flex-wrap: wrap; /* Cho phép rớt dòng nếu nhiều ảnh */
+  }
+
+  .thumb-cert {
+    width: 50px; /* Thu nhỏ ảnh tròn trên mobile */
+    height: 50px;
+  }
+
+  .certificate-content .section-title::after {
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa gạch chân tiêu đề trên mobile */
+  }
+
+  .description {
+    font-size: 15px;
+    text-align: center; /* Căn giữa đoạn văn để đồng bộ */
+  }
+}
 /* FOOTER */
-/* CSS cho Footer */
+
 footer {
   background: #1a1a1a; /* Màu nền tối sang trọng */
   color: #ddd;

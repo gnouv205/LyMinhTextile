@@ -25,7 +25,7 @@
         <div class="footer-col footer-contact">
             <h4>Liên Hệ</h4>
             <p>📍 Nhơn Trạch, Đồng Nai</p>
-            <p>📞 0931 887 630</p>
+            <p>📞 0333 505 127</p>
             <p>✉️ sales@lyminhtextile.com.vn</p>
         </div>
 
