@@ -104,3 +104,54 @@ function currentSlide(n) {
 document.addEventListener("DOMContentLoaded", function () {
   showSlides();
 });
+
+// =================== Cert
+let certIndex = 0;
+let certTimer;
+const certImages = [
+  "assets/img/cc1.jpeg",
+  "assets/img/cc2.jpg",
+  "assets/img/cc3.jpg",
+  "assets/img/cc4.jpg",
+  "assets/img/cc5.jpg",
+  "assets/img/cc6.jpg",
+];
+
+function startCertTimer() {
+  clearTimeout(certTimer);
+  certTimer = setTimeout(() => {
+    certIndex++;
+    if (certIndex >= certImages.length) certIndex = 0;
+    updateCertDisplay();
+    startCertTimer();
+  }, 3000); // Đổi ảnh sau mỗi 3 giây
+}
+
+function showCert(index) {
+  certIndex = index;
+  updateCertDisplay();
+  startCertTimer(); // Reset lại timer khi người dùng chủ động click
+}
+
+function updateCertDisplay() {
+  const mainImg = document.getElementById("mainCertImage");
+  const thumbs = document.querySelectorAll(".thumb-cert");
+
+  // Thay đổi ảnh chính với hiệu ứng
+  mainImg.style.opacity = "0";
+  setTimeout(() => {
+    mainImg.src = certImages[certIndex];
+    mainImg.style.opacity = "1";
+  }, 200);
+
+  // Cập nhật trạng thái thumbnail
+  thumbs.forEach((t, i) => {
+    if (i === certIndex) t.classList.add("active");
+    else t.classList.remove("active");
+  });
+}
+
+// Khởi chạy khi tải trang
+document.addEventListener("DOMContentLoaded", () => {
+  startCertTimer();
+});

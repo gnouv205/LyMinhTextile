@@ -305,10 +305,12 @@
         </div>
 
         <div class="cert-thumbnails">
-          <img class="thumb-cert active" src="assets/img/cert1.jpg" onclick="showCert(0)" alt="Cert 1">
-          <img class="thumb-cert" src="assets/img/cert2.jpg" onclick="showCert(1)" alt="Cert 2">
-          <img class="thumb-cert" src="assets/img/cert3.jpg" onclick="showCert(2)" alt="Cert 3">
-          <img class="thumb-cert" src="assets/img/cert4.jpg" onclick="showCert(3)" alt="Cert 4">
+          <img class="thumb-cert active" src="assets/img/cc1.jpeg" onclick="showCert(0)" alt="Cert 1">
+          <img class="thumb-cert" src="assets/img/cc2.jpg" onclick="showCert(1)" alt="Cert 2">
+          <img class="thumb-cert" src="assets/img/cc3.jpg" onclick="showCert(2)" alt="Cert 3">
+          <img class="thumb-cert" src="assets/img/cc4.jpg" onclick="showCert(3)" alt="Cert 4">
+          <img class="thumb-cert" src="assets/img/cc5.jpg" onclick="showCert(4)" alt="Cert 5">
+          <img class="thumb-cert" src="assets/img/cc6.jpg" onclick="showCert(5)" alt="Cert 6">
         </div>
       </div>
     </div>
