@@ -46,30 +46,31 @@
                 <li class="dropdown">
                     <a href="#">Xưởng sản xuất</a>
                     <ul class="submenu">
-                        <li><a href="index.php?page=dyeing">Xưởng nhuộm</a></li>
-                        <li><a href="index.php?page=circular">Dệt tròn</a></li>
-                        <li><a href="index.php?page=warp">Dệt kim</a></li>
-                        <li><a href="index.php?page=quality">Kiểm soát chất lượng</a></li>
-                        <li><a href="index.php?page=lab">Phòng thí nghiệm</a></li>
-                        <li><a href="index.php?page=finishing">Hoàn thiện</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#dyeing">Xưởng nhuộm</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#circular">Dệt tròn</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#warp">Dệt kim bằng</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#weaving">Dệt dây</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#quality">Kiểm soát chất lượng</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#lab">Phòng thí nghiệm</a></li>
+                        <li><a href="index.php?page=xuongsanxuat#finishing">Xưởng hoàn thiện</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#">Công nhân viên</a>
                     <ul class="submenu">
-                        <li><a href="index.php?page=careers">Phát triển nghề nghiệp</a></li>
-                        <li><a href="index.php?page=opportunities">Cơ hội việc làm</a></li>
-                        <li><a href="index.php?page=rewards">Khen thưởng</a></li>
-                        <li><a href="index.php?page=teamwork">Làm việc nhóm</a></li>
+                        <li><a href="index.php?page=congnhanvien#career">Phát triển nghề nghiệp</a></li>
+                        <li><a href="index.php?page=congnhanvien#rewards">Khen thưởng</a></li>
+                        <li><a href="index.php?page=congnhanvien#teamwork">Làm việc nhóm</a></li>
+                        <li><a href="index.php?page=congnhanvien#jobs">Cơ hội việc làm</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#">Liên hệ</a>
                     <ul class="submenu">
-                        <li><a href="index.php?page=contact">Thông tin liên hệ</a></li>
-                        <li><a href="index.php?page=agency">Đại lý</a></li>
+                        <li><a href="index.php?page=lienhe#contact">Thông tin liên hệ</a></li>
+                        <li><a href="index.php?page=lienhe#agency">Đại lý</a></li>
                     </ul>
                 </li>
 
@@ -81,7 +82,6 @@
     </header>
 
     <script>
-        // Hiệu ứng Header khi cuộn
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             header.classList.toggle('sticky', window.scrollY > 0);
