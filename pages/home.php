@@ -1,13 +1,31 @@
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="assets/video/canva.mp4" type="video/mp4">
-  </video>
+  <div class="hero-slider">
+    <img src="assets/img/slider1.jpg" class="hero-slide active">
+    <img src="assets/img/slider3.jpg" class="hero-slide">
+    <img src="assets/img/slider4.jpg" class="hero-slide">
+    <img src="assets/img/slider5.png" class="hero-slide">
+    <img src="assets/img/slider6.jpg" class="hero-slide">
+  </div>
+
+  <!-- Nút -->
+  <button class="nav prev" onclick="changeSlide(-1)">❮</button>
+  <button class="nav next" onclick="changeSlide(1)">❯</button>
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    <span class="hero-dot active" onclick="goToSlide(1)"></span>
+    <span class="hero-dot" onclick="goToSlide(2)"></span>
+    <span class="hero-dot" onclick="goToSlide(3)"></span>
+    <span class="hero-dot" onclick="goToSlide(4)"></span>
+    <span class="hero-dot" onclick="goToSlide(5)"></span>
+  </div>
+
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1>Chất Lượng Định Nghĩa Thương Hiệu</h1>
-    <p>Nhà sản xuất vải ren hàng đầu Việt Nam</p>
+    <h1>Vải ren dẫn đầu, phụ liệu chuyên sâu.</h1>
+    <p>Chất lượng dệt nên niềm tin.</p>
   </div>
 </section>
 
@@ -301,7 +319,7 @@
 
       <div class="certificate-display">
         <div class="main-cert-container">
-          <img id="mainCertImage" src="assets/img/cert1.jpg" alt="Chứng chỉ ISO" loading="lazy">
+          <img id="mainCertImage" src="assets/img/cc1.jpeg" alt="Chứng chỉ ISO" loading="lazy">
         </div>
 
         <div class="cert-thumbnails">

@@ -1,108 +1,108 @@
-const video = document.querySelector(".hero video");
+let heroIndex = 1;
+let heroTimer;
 
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  if (header) {
-    header.classList.toggle("sticky", window.scrollY > 0);
-  }
-});
-
-if (video) {
-  video.addEventListener("ended", function () {
-    this.currentTime = 0;
-    this.play();
-  });
-  window.addEventListener("load", () => {
-    video.play().catch(() => {});
-  });
-}
-
-function toggleMenu() {
-  document.querySelector("nav ul").classList.toggle("active");
-}
-
-document.querySelectorAll(".dropdown > a").forEach((item) => {
-  item.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      this.parentElement.classList.toggle("active");
-    }
-  });
-});
-
-// PHẦN PRODUCT SLIDER
-let slideIndex = 0;
-let slideTimer;
-
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
+function showHeroSlide(n) {
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
 
   if (slides.length === 0) return;
 
-  // 1. Ẩn tất cả và dọn dẹp class
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-    slides[i].classList.remove("active");
-  }
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
+  if (n > slides.length) heroIndex = 1;
+  if (n < 1) heroIndex = slides.length;
+
+  slides.forEach((s) => {
+    s.classList.remove("active");
+    s.style.opacity = "0";
+  });
+
+  dots.forEach((d) => d.classList.remove("active"));
+
+  slides[heroIndex - 1].classList.add("active");
+  slides[heroIndex - 1].style.opacity = "1";
+
+  if (dots[heroIndex - 1]) {
+    dots[heroIndex - 1].classList.add("active");
   }
 
-  // 2. Tăng index
+  clearTimeout(heroTimer);
+  heroTimer = setTimeout(() => changeSlide(1), 3000);
+}
+
+// Next / Prev
+function changeSlide(n) {
+  heroIndex += n;
+  showHeroSlide(heroIndex);
+}
+
+// Click dot
+function goToSlide(n) {
+  heroIndex = n;
+  showHeroSlide(heroIndex);
+}
+
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+  showHeroSlide(heroIndex);
+});
+
+// ================= PRODUCT SLIDER (FADE SMOOTH)
+
+let slideIndex = 1;
+let slideTimer;
+
+// Hiển thị slide
+function showSlides() {
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  if (slides.length === 0) return;
+
+  // reset tất cả
+  slides.forEach((slide) => slide.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
+
+  // fix index
+  if (slideIndex > slides.length) slideIndex = 1;
+  if (slideIndex < 1) slideIndex = slides.length;
+
+  // hiển thị slide hiện tại
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1]?.classList.add("active");
+
+  // tăng index cho lần tiếp theo
   slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
 
-  // 3. Hiển thị slide hiện tại
-  slides[slideIndex - 1].style.display = "block";
-
-  // Tạo khoảng nghỉ cực ngắn để animation CSS có thể kích hoạt
-  setTimeout(() => {
-    slides[slideIndex - 1].classList.add("active");
-  }, 20);
-
-  if (dots[slideIndex - 1]) {
-    dots[slideIndex - 1].classList.add("active");
-  }
-
-  // 4. Thiết lập thời gian
+  // auto chạy
   clearTimeout(slideTimer);
   slideTimer = setTimeout(showSlides, 5000);
 }
 
-// Hàm click vào chấm (Phải reset đúng cách)
+// Click vào dot
 function currentSlide(n) {
-  // n nhận từ HTML là 1, 2, 3... nên cần -1 để khớp mảng
-  slideIndex = n - 1;
+  slideIndex = n;
 
   clearTimeout(slideTimer);
-
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-    slides[i].classList.remove("active");
-    if (dots[i]) dots[i].classList.remove("active");
-  }
-
-  slides[slideIndex].style.display = "block";
-  setTimeout(() => {
-    slides[slideIndex].classList.add("active");
-  }, 20);
-
-  if (dots[slideIndex]) dots[slideIndex].classList.add("active");
-
-  // Tăng Index lên để lần tự động tiếp theo sẽ nhảy sang slide kế tiếp
-  slideIndex++;
-  slideTimer = setTimeout(showSlides, 5000);
+  showSlides(); // 🔥 chỉ gọi lại 1 hàm duy nhất
 }
 
-// Kích hoạt khi trang đã sẵn sàng
-document.addEventListener("DOMContentLoaded", function () {
+// Pause khi hover (UX xịn hơn)
+function initSliderEvents() {
+  const slider = document.querySelector(".slider-container");
+  if (!slider) return;
+
+  slider.addEventListener("mouseenter", () => {
+    clearTimeout(slideTimer);
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    showSlides();
+  });
+}
+
+// Init khi load
+document.addEventListener("DOMContentLoaded", () => {
   showSlides();
+  initSliderEvents();
 });
 
 // =================== Cert

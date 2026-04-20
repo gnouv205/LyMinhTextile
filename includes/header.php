@@ -8,14 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="../assets/img/fabric.png">
 </head>
 
 <body>
     <header id="navbar">
-        <a href="index.php" class="logo">LYMITEX</a>
-
+        <a href="index.php" class="logo">
+            LYMITEX
+            <img src="assets/img/header/organic.png" alt="Icon">
+        </a>
         <div class="burger" onclick="toggleMenu()">☰</div>
 
         <nav>
