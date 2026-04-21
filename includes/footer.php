@@ -10,21 +10,24 @@
                 <a href="#"><img src="assets/img/footer/instagram.png"></a>
                 <a href="#"><img src="assets/img/footer/youtube.png"></a>
             </div>
+            <div class="logoLM">
+                <img src="assets/img/logo2.png" alt="Logo Lý Minh" style="width: 140px; height: auto; margin-left: 35px;">
+            </div>
         </div>
 
         <div class="footer-col">
             <h4>Liên Kết</h4>
             <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Về chúng tôi</a></li>
-                <li><a href="#">Xưởng sản xuất</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="index.php?page=thongtincongty">Về chúng tôi</a></li>
+                <li><a href="index.php?page=xuongsanxuat">Xưởng sản xuất</a></li>
                 <li><a href="#">Sản phẩm tiêu biểu</a></li>
             </ul>
         </div>
 
         <div class="footer-col footer-contact">
             <h4>Liên Hệ</h4>
-            <p>📍 Nhơn Trạch, Đồng Nai</p>
+            <p>📍 B410-B411-B412, đường 319B , khu công nghiệp VINATEX-TÂN TẠO, huyện Nhơn Trạch, tỉnh Đồng Nai, Việt Nam</p>
             <p>📞 0333 505 127</p>
             <p>✉️ sales@lyminhtextile.com.vn</p>
         </div>
@@ -36,7 +39,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Lymitex Textile. All right reserved. Design by Đình Vương</p>
+        <p style="margin-top: 10px;">&copy; 2026 Lymitex Textile. All right reserved. Design by Gnouv</p>
     </div>
 </footer>
 

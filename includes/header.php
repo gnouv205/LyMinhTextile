@@ -38,7 +38,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#">Nhóm sản phẩm</a>
+                    <a href="index.php?page=nhomsanpham">Nhóm sản phẩm</a>
                     <ul class="submenu">
                         <li><a href="index.php?page=nhomsanpham#fabric">Vải</a></li>
                         <li><a href="index.php?page=nhomsanpham#medical">Khẩu trang</a></li>
@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#">Xưởng sản xuất</a>
+                    <a href="index.php?page=xuongsanxuat">Xưởng sản xuất</a>
                     <ul class="submenu">
                         <li><a href="index.php?page=xuongsanxuat#dyeing">Xưởng nhuộm</a></li>
                         <li><a href="index.php?page=xuongsanxuat#circular">Dệt tròn</a></li>
@@ -60,7 +60,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#">Công nhân viên</a>
+                    <a href="index.php?page=congnhanvien">Công nhân viên</a>
                     <ul class="submenu">
                         <li><a href="index.php?page=congnhanvien#career">Phát triển nghề nghiệp</a></li>
                         <li><a href="index.php?page=congnhanvien#rewards">Khen thưởng</a></li>
@@ -70,7 +70,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#">Liên hệ</a>
+                    <a href="index.php?page=lienhe">Liên hệ</a>
                     <ul class="submenu">
                         <li><a href="index.php?page=lienhe#contact">Thông tin liên hệ</a></li>
                         <li><a href="index.php?page=lienhe#agency">Đại lý</a></li>
